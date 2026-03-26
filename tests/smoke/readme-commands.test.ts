@@ -12,6 +12,10 @@ describe("README commands", () => {
     expect(readme).toContain("--article");
     expect(readme).toContain("--site");
     expect(readme).toContain("--dry-run");
+    expect(readme).toContain("--platform");
+    expect(readme).toContain("--url");
+    expect(readme).toContain("--capture");
+    expect(readme).toContain("--output");
   });
 
   it("parses the documented dry-run command shape", () => {
@@ -42,6 +46,27 @@ describe("README commands", () => {
       articlePath: "draft article.txt",
       siteId: "bitcoininfonews",
       dryRun: false
+    });
+  });
+
+  it("parses the documented direct capture command shape", () => {
+    const parsed = parseCliArgs([
+      "--platform",
+      "coingecko",
+      "--url",
+      "https://www.coingecko.com/en/coins/bitcoin",
+      "--capture",
+      "price_chart",
+      "--output",
+      "C:\\captures\\bitcoin.png"
+    ]);
+
+    expect(parsed).toEqual({
+      dryRun: false,
+      platformKey: "coingecko",
+      url: "https://www.coingecko.com/en/coins/bitcoin",
+      captureKey: "price_chart",
+      outputPath: "C:\\captures\\bitcoin.png"
     });
   });
 });

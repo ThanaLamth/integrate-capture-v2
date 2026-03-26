@@ -67,6 +67,29 @@ npm run build
 node dist/src/cli/main.js --article "draft article.txt" --site coincu
 ```
 
+## Run A Direct Image Capture
+
+This is the recommended path for another PC that only needs screenshots and does not need the article-routing flow.
+
+Direct CLI call:
+
+```bash
+npm run build
+node dist/src/cli/main.js --platform coingecko --url "https://www.coingecko.com/en/coins/bitcoin" --capture price_chart --output "C:\captures\bitcoin.png"
+```
+
+PowerShell wrapper:
+
+```powershell
+.\capture-image.ps1 -PlatformKey coingecko -Url "https://www.coingecko.com/en/coins/bitcoin" -CaptureKey price_chart -OutputPath "C:\captures\bitcoin.png"
+```
+
+If a site works better in headed mode on that machine, add:
+
+```powershell
+-Headed
+```
+
 ## Programmatic Capture Example
 
 ```js
@@ -138,6 +161,12 @@ Then integrate it into the article-writing machine by either:
 
 1. calling the CLI
 2. importing `executeCapture(...)` from `dist/src/capture/execute-capture.js`
+
+For the simplest external integration, prefer the direct capture wrapper:
+
+```powershell
+.\capture-image.ps1 -PlatformKey <platform> -Url "<page-url>" -CaptureKey <capture-key> -OutputPath "<target-image-path>"
+```
 
 ## Suggested GitHub Commands
 
