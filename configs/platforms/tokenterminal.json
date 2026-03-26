@@ -1,0 +1,53 @@
+{
+  "siteName": "Token Terminal",
+  "platformKey": "tokenterminal",
+  "matchRules": [
+    {
+      "pageType": "project_page",
+      "urlPatterns": [
+        "^https://tokenterminal\\.com/explorer/projects/[a-z0-9-]+/?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1400,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 15000,
+    "requiredSelectors": [
+      "div.border.border-solid.border-border-default.bg-bg-surface.rounded-2xl.flex.flex-col.p-6.min-h-\\[460px\\]",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "project_overview_card",
+      "pageType": "project_page",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.border.border-solid.border-border-default.bg-bg-surface.rounded-2xl.flex.flex-col.p-6.min-h-\\[460px\\]"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 180,
+        "y": 220,
+        "width": 1240,
+        "height": 760
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

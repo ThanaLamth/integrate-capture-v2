@@ -1,0 +1,52 @@
+{
+  "siteName": "Arkm",
+  "platformKey": "arkm",
+  "matchRules": [
+    {
+      "pageType": "entity_page",
+      "urlPatterns": [
+        "^https://intel\\.arkm\\.com/explorer/entity/[a-z0-9-]+/?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1400,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 5000,
+    "requiredSelectors": [
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "entity_overview",
+      "pageType": "entity_page",
+      "strategy": "crop",
+      "selectors": [
+        "body"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 160,
+        "y": 100,
+        "width": 1280,
+        "height": 820
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

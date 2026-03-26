@@ -1,0 +1,18 @@
+{
+  "bitcoininfonews": [
+    "blockchair",
+    "coinmetrics",
+    "cryptoquant",
+    "glassnode",
+    "coingecko",
+    "coinglass"
+  ],
+  "coincu": [
+    "coingecko",
+    "defillama",
+    "glassnode",
+    "coinmetrics",
+    "cryptoquant",
+    "messari"
+  ]
+}

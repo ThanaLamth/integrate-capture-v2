@@ -1,0 +1,53 @@
+{
+  "siteName": "DexScreener",
+  "platformKey": "dexscreener",
+  "matchRules": [
+    {
+      "pageType": "pair_page",
+      "urlPatterns": [
+        "^https://dexscreener\\.com/[a-z0-9_-]+/[a-zA-Z0-9]+/?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 4000,
+    "requiredSelectors": [
+      "div.tv-chart-container",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "pair_chart",
+      "pageType": "pair_page",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.tv-chart-container"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 120,
+        "y": 220,
+        "width": 1320,
+        "height": 760
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

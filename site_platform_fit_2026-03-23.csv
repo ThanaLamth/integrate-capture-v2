@@ -1,0 +1,76 @@
+﻿archetype,site_id,brand_name,primary_lens,platform,platform_category,relevance,why_fit
+flagship,coincu,Coincu,institutional and macro-economic analysis,CoinGecko,Market Data,High,"Core market benchmark for price, market cap, and broad market context used in institutional/macro coverage."
+flagship,coincu,Coincu,institutional and macro-economic analysis,Glassnode,On-Chain Analytics,High,"Strong fit for holder behavior, liquidity, and on-chain fundamentals that support macro/institutional thesis pieces."
+flagship,coincu,Coincu,institutional and macro-economic analysis,DefiLlama,DeFi & Protocol Analytics,High,"Useful when institutional flows spill into DeFi sectors, TVL shifts, and protocol-level market structure context."
+flagship,coincu,Coincu,institutional and macro-economic analysis,CoinMetrics,On-Chain Analytics,Medium,Good for longer-range historical network datasets and market structure comparisons.
+flagship,coincu,Coincu,institutional and macro-economic analysis,CryptoQuant,On-Chain Analytics,Medium,"Fits exchange flow, reserve, and derivatives-linked on-chain context for serious traders."
+flagship,coincu,Coincu,institutional and macro-economic analysis,Messari,Ecosystem / Specialized Data,Medium,"Useful for structured project datasets and research framing, though more research-support than headline source."
+wire,cryptodailyalert,CryptoDailyAlert,breaking news speed and accuracy,CoinGecko,Market Data,High,Fast baseline source for immediate price reaction in breaking coverage.
+wire,cryptodailyalert,CryptoDailyAlert,breaking news speed and accuracy,CoinMarketCap,Market Data,High,"Useful secondary market benchmark for quick verification of prices, market cap, and rankings."
+wire,cryptodailyalert,CryptoDailyAlert,breaking news speed and accuracy,Blockchair,Blockchain Intelligence & Explorer,Medium,Helps confirm on-chain events quickly when a breaking story references transfers or addresses.
+wire,cryptodailyalert,CryptoDailyAlert,breaking news speed and accuracy,CoinGlass,Trading & Market Analytics,Medium,Relevant when the breaking item is market-moving and requires liquidation or funding context.
+wire,bitcoininfonews,BtcInfoNews,Bitcoin network health and monetary properties,Glassnode,On-Chain Analytics,High,"Best fit for Bitcoin holder, liquidity, reserve, and network-health metrics."
+wire,bitcoininfonews,BtcInfoNews,Bitcoin network health and monetary properties,CoinMetrics,On-Chain Analytics,High,Useful for long-horizon Bitcoin network and monetary data comparisons.
+wire,bitcoininfonews,BtcInfoNews,Bitcoin network health and monetary properties,Blockchair,Blockchain Intelligence & Explorer,High,"Practical chain-level validation source for transactions, blocks, and address activity."
+wire,bitcoininfonews,BtcInfoNews,Bitcoin network health and monetary properties,CryptoQuant,On-Chain Analytics,High,"Strong for exchange reserves, netflows, and market structure metrics around BTC."
+wire,bitcoininfonews,BtcInfoNews,Bitcoin network health and monetary properties,CoinGecko,Market Data,Medium,Needed for simple market context but not sufficient alone for this site?s Bitcoin-first lens.
+wire,bitcoininfonews,BtcInfoNews,Bitcoin network health and monetary properties,CoinGlass,Trading & Market Analytics,Medium,Useful for futures positioning and liquidation data when the Bitcoin angle is market-driven.
+analyst,marketbit,MarketBit,quantitative market analysis and derivatives data,CoinGlass,Trading & Market Analytics,High,"Direct match for open interest, funding rates, and liquidation structure central to this site."
+analyst,marketbit,MarketBit,quantitative market analysis and derivatives data,CryptoQuant,On-Chain Analytics,High,"Good fit for exchange flows, reserves, and behavior that support quantified market calls."
+analyst,marketbit,MarketBit,quantitative market analysis and derivatives data,Glassnode,On-Chain Analytics,High,Useful for robust on-chain market context and liquidity analysis.
+analyst,marketbit,MarketBit,quantitative market analysis and derivatives data,CoinMetrics,On-Chain Analytics,High,Strong fit for historical market/network datasets and quantitative comparisons.
+analyst,marketbit,MarketBit,quantitative market analysis and derivatives data,CoinGecko,Market Data,Medium,Works as baseline spot market data but lacks the derivatives depth this brand prioritizes.
+analyst,marketbit,MarketBit,quantitative market analysis and derivatives data,Nansen,On-Chain Analytics,Medium,Useful for wallet-level positioning and smart-money flow overlays.
+niche,defiliban,DeFiLiban,DeFi protocol mechanics and liquidity implications,DefiLlama,DeFi & Protocol Analytics,High,"Best overall fit for TVL, fees, revenue, and yield movement across protocols."
+niche,defiliban,DeFiLiban,DeFi protocol mechanics and liquidity implications,TokenTerminal,DeFi & Protocol Analytics,High,Strong fit for protocol financial metrics such as revenue and P&L.
+niche,defiliban,DeFiLiban,DeFi protocol mechanics and liquidity implications,Dune,On-Chain Analytics,High,"Ideal for custom DeFi dashboards, governance activity, and protocol-specific queries."
+niche,defiliban,DeFiLiban,DeFi protocol mechanics and liquidity implications,DeBank,Ecosystem / Specialized Data,High,Useful for wallet-level DeFi and portfolio positioning across EVM protocols.
+niche,defiliban,DeFiLiban,DeFi protocol mechanics and liquidity implications,DappRadar,DeFi & Protocol Analytics,Medium,"Useful for dapp usage and activity, though less finance-focused than DefiLlama."
+niche,defiliban,DeFiLiban,DeFi protocol mechanics and liquidity implications,StakingRewards,Ecosystem / Specialized Data,Medium,"Relevant when staking, validator yield, or LST exposure matters."
+niche,defiliban,DeFiLiban,DeFi protocol mechanics and liquidity implications,Dexscreener,Trading & Market Analytics,Medium,Helpful for real-time DEX liquidity and token trading context around DeFi events.
+niche,aicryptocore,AiCryptoCore,AI and blockchain convergence,CoinGecko,Market Data,High,Best baseline for AI-token sector price performance and broad market context.
+niche,aicryptocore,AiCryptoCore,AI and blockchain convergence,Messari,Ecosystem / Specialized Data,Medium,Useful for project-level research and ecosystem mapping where AI-specific datasets are limited in the PDF list.
+niche,aicryptocore,AiCryptoCore,AI and blockchain convergence,Dune,On-Chain Analytics,Medium,Can support custom dashboards for AI-token usage and on-chain activity when queried well.
+niche,aicryptocore,AiCryptoCore,AI and blockchain convergence,DefiLlama,DeFi & Protocol Analytics,Medium,"Relevant when AI-linked protocols have TVL, fees, or on-chain product metrics."
+niche,aicryptocore,AiCryptoCore,AI and blockchain convergence,TokenTerminal,DeFi & Protocol Analytics,Medium,Useful for evaluating revenue and fees of AI-related crypto protocols.
+niche,aicryptocore,AiCryptoCore,AI and blockchain convergence,Nansen,On-Chain Analytics,Medium,Good for wallet-level token flow analysis around AI narratives.
+niche,aicryptocore,AiCryptoCore,AI and blockchain convergence,CoinMarketCap,Market Data,Low,"Helpful as a secondary market reference, but not specialized enough for this niche."
+niche,nftenex,NFTenex,"digital ownership, creator economics, and NFT infrastructure",CryptoSlam,Ecosystem / Specialized Data,High,"Best fit in the platform list for NFT sales volume, collection rankings, and market activity."
+niche,nftenex,NFTenex,"digital ownership, creator economics, and NFT infrastructure",DappRadar,DeFi & Protocol Analytics,High,"Strong fit for dapp usage, NFT activity, and creator-economy infrastructure signals."
+niche,nftenex,NFTenex,"digital ownership, creator economics, and NFT infrastructure",Dune,On-Chain Analytics,Medium,Useful for bespoke NFT and creator-economy dashboards beyond marketplace summaries.
+niche,nftenex,NFTenex,"digital ownership, creator economics, and NFT infrastructure",DeBank,Ecosystem / Specialized Data,Medium,Relevant for wallet-level NFT holdings and cross-EVM portfolio views.
+niche,nftenex,NFTenex,"digital ownership, creator economics, and NFT infrastructure",CoinGecko,Market Data,Medium,Useful for NFT-related token pricing but not enough alone for NFT market coverage.
+wire,theccpress,The CC Press,narrative drama and human conflict,CoinGecko,Market Data,High,Solid market baseline to anchor narrative stories with credible numbers.
+wire,theccpress,The CC Press,narrative drama and human conflict,CoinMarketCap,Market Data,High,Useful for easy-to-read rankings and general market context in magazine-style reporting.
+wire,theccpress,The CC Press,narrative drama and human conflict,CoinGlass,Trading & Market Analytics,Medium,Useful when drama is market-driven and needs liquidation/funding evidence.
+wire,theccpress,The CC Press,narrative drama and human conflict,Glassnode,On-Chain Analytics,Medium,"Adds depth when a narrative involves holders, flows, or structural market shifts."
+wire,theccpress,The CC Press,narrative drama and human conflict,Chainalysis,Blockchain Intelligence & Explorer,Medium,"Relevant for investigations, illicit-flow angles, and regulatory conflict stories."
+community,coinlineup,CoinLineup,plain-English explanation for newcomers,CoinGecko,Market Data,High,Best simple market reference for beginner-friendly explainers.
+community,coinlineup,CoinLineup,plain-English explanation for newcomers,CoinMarketCap,Market Data,High,Useful for accessible rankings and basic price context that newcomers already recognize.
+community,coinlineup,CoinLineup,plain-English explanation for newcomers,CoinGlass,Trading & Market Analytics,Medium,Useful only when liquidation or derivatives context needs simple explanation.
+community,coinlineup,CoinLineup,plain-English explanation for newcomers,DefiLlama,DeFi & Protocol Analytics,Medium,Helpful for simplified protocol explainers when TVL or fees matter.
+community,coinlineup,CoinLineup,plain-English explanation for newcomers,Blockchair,Blockchain Intelligence & Explorer,Low,"Can verify chain facts, but usually too technical for the core audience."
+wire,coinlive,CoinLive,real-time market impact and speed,CoinGecko,Market Data,High,"Fast baseline for price, change, volume, and ranking in flash-style posts."
+wire,coinlive,CoinLive,real-time market impact and speed,CoinGlass,Trading & Market Analytics,High,"Direct fit for liquidation, funding, and derivatives reaction in fast market updates."
+wire,coinlive,CoinLive,real-time market impact and speed,CryptoQuant,On-Chain Analytics,High,Useful for exchange flow and reserve signals that move markets in real time.
+wire,coinlive,CoinLive,real-time market impact and speed,Arkham,Blockchain Intelligence & Explorer,Medium,Relevant for attributed whale-wallet movements in fast alerts.
+wire,coinlive,CoinLive,real-time market impact and speed,Nansen,On-Chain Analytics,Medium,Useful for smart-money flow and wallet tracking around market-moving events.
+wire,coinlive,CoinLive,real-time market impact and speed,Dexscreener,Trading & Market Analytics,Medium,Helpful for real-time DEX token movement where centralized feeds lag.
+community,coinwy,Coinwy,balanced dual-perspective reporting,CoinGecko,Market Data,High,Best baseline source to frame both bullish and bearish interpretations with neutral market data.
+community,coinwy,Coinwy,balanced dual-perspective reporting,CoinGlass,Trading & Market Analytics,High,Useful to show both sides of market positioning through derivatives metrics.
+community,coinwy,Coinwy,balanced dual-perspective reporting,Glassnode,On-Chain Analytics,Medium,Helpful for evidence-based bull vs bear structural comparisons.
+community,coinwy,Coinwy,balanced dual-perspective reporting,CryptoQuant,On-Chain Analytics,Medium,Useful for reserve/netflow evidence supporting opposite interpretations.
+community,coinwy,Coinwy,balanced dual-perspective reporting,DefiLlama,DeFi & Protocol Analytics,Medium,Relevant when protocol strength or sector rotation is part of the debate.
+community,coinwy,Coinwy,balanced dual-perspective reporting,CoinMarketCap,Market Data,Medium,Good secondary benchmark for readability and quick market checks.
+community,kanalcoin,KanalCoin,Southeast Asian regional impact and context,Chainalysis,Blockchain Intelligence & Explorer,High,"Best fit in the list for geographic adoption, regional flows, and jurisdiction-focused analysis."
+community,kanalcoin,KanalCoin,Southeast Asian regional impact and context,CoinGecko,Market Data,High,Useful baseline for global market moves before layering ASEAN-specific interpretation.
+community,kanalcoin,KanalCoin,Southeast Asian regional impact and context,CoinMarketCap,Market Data,Medium,Useful secondary benchmark for broad market context and rankings.
+community,kanalcoin,KanalCoin,Southeast Asian regional impact and context,DefiLlama,DeFi & Protocol Analytics,Medium,Relevant when regional DeFi adoption or protocol usage matters.
+community,kanalcoin,KanalCoin,Southeast Asian regional impact and context,CoinGlass,Trading & Market Analytics,Medium,Useful for explaining how global volatility transmits into regional trading behavior.
+community,kanalcoin,KanalCoin,Southeast Asian regional impact and context,Messari,Ecosystem / Specialized Data,Low,"Useful as background research, but less region-specific than Chainalysis."
+wire,tokentopnews,TokenTopNews,editorial synthesis ? connecting the dots,CoinGecko,Market Data,High,Core market benchmark for synthesizing cross-story patterns over days and weeks.
+wire,tokentopnews,TokenTopNews,editorial synthesis ? connecting the dots,DefiLlama,DeFi & Protocol Analytics,High,"Helps connect sector rotation, TVL movement, and protocol trends across stories."
+wire,tokentopnews,TokenTopNews,editorial synthesis ? connecting the dots,Glassnode,On-Chain Analytics,High,Useful for identifying longer-horizon holder and liquidity trends behind multiple headlines.
+wire,tokentopnews,TokenTopNews,editorial synthesis ? connecting the dots,CoinGlass,Trading & Market Analytics,Medium,Good when the synthesis includes derivatives positioning across recent events.
+wire,tokentopnews,TokenTopNews,editorial synthesis ? connecting the dots,CryptoQuant,On-Chain Analytics,Medium,Useful for exchange-flow patterns that tie several stories together.
+wire,tokentopnews,TokenTopNews,editorial synthesis ? connecting the dots,Messari,Ecosystem / Specialized Data,Medium,Supports broader thematic research and ecosystem comparisons.

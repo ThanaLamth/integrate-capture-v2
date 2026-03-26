@@ -1,0 +1,160 @@
+{
+  "siteName": "CoinGlass",
+  "platformKey": "coinglass",
+  "matchRules": [
+    {
+      "pageType": "liquidations",
+      "urlPatterns": [
+        "^https://www\\.coinglass\\.com/liquidations/?$"
+      ]
+    },
+    {
+      "pageType": "etf",
+      "urlPatterns": [
+        "^https://www\\.coinglass\\.com/etf/?$"
+      ]
+    },
+    {
+      "pageType": "long_short_ratio",
+      "urlPatterns": [
+        "^https://www\\.coinglass\\.com/LongShortRatio/?$"
+      ]
+    },
+    {
+      "pageType": "market_cap_heatmap",
+      "urlPatterns": [
+        "^https://www\\.coinglass\\.com/pro/heatmap/market-cap/?$"
+      ]
+    },
+    {
+      "pageType": "spot_inflow_outflow",
+      "urlPatterns": [
+        "^https://www\\.coinglass\\.com/spot-inflow-outflow/?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 2500,
+    "requiredSelectors": [
+      "div.echarts-for-react",
+      "div.hg-chart-base",
+      "#cg-treemap",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "liquidations_chart",
+      "pageType": "liquidations",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.echarts-for-react"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 120,
+        "y": 260,
+        "width": 1320,
+        "height": 460
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    },
+    {
+      "captureKey": "etf_chart",
+      "pageType": "etf",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.echarts-for-react"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 120,
+        "y": 220,
+        "width": 800,
+        "height": 400
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    },
+    {
+      "captureKey": "long_short_ratio_chart",
+      "pageType": "long_short_ratio",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.echarts-for-react",
+        "div.hg-chart-base"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 120,
+        "y": 360,
+        "width": 760,
+        "height": 320
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    },
+    {
+      "captureKey": "market_cap_heatmap",
+      "pageType": "market_cap_heatmap",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "#cg-treemap"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 260,
+        "y": 170,
+        "width": 1260,
+        "height": 860
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    },
+    {
+      "captureKey": "spot_inflow_outflow_chart",
+      "pageType": "spot_inflow_outflow",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.echarts-for-react"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 120,
+        "y": 220,
+        "width": 1380,
+        "height": 400
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

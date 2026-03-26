@@ -1,0 +1,53 @@
+{
+  "siteName": "CryptoSlam",
+  "platformKey": "cryptoslam",
+  "matchRules": [
+    {
+      "pageType": "blockchain_page",
+      "urlPatterns": [
+        "^https://www\\.cryptoslam\\.io/blockchains/[a-z0-9-]+/?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1400,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 5000,
+    "requiredSelectors": [
+      "div.css-gltthf",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "blockchain_summary",
+      "pageType": "blockchain_page",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.css-gltthf"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 180,
+        "y": 220,
+        "width": 1240,
+        "height": 760
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

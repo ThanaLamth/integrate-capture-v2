@@ -1,0 +1,53 @@
+{
+  "siteName": "Token Insight",
+  "platformKey": "tokeninsight",
+  "matchRules": [
+    {
+      "pageType": "exchange_page",
+      "urlPatterns": [
+        "^https://tokeninsight\\.com/en/exchanges/[a-z0-9-]+/?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1400,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 5000,
+    "requiredSelectors": [
+      "div.exchanges-converter-price-chart",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "exchange_price_chart",
+      "pageType": "exchange_page",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.exchanges-converter-price-chart"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 180,
+        "y": 220,
+        "width": 1240,
+        "height": 760
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

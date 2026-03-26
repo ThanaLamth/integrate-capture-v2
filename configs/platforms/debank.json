@@ -1,0 +1,82 @@
+{
+  "siteName": "DeBank",
+  "platformKey": "debank",
+  "matchRules": [
+    {
+      "pageType": "wallet_profile",
+      "urlPatterns": [
+        "^https://debank\\.com/profile/0x[a-fA-F0-9]{40}(?:\\?.*)?$"
+      ]
+    },
+    {
+      "pageType": "protocol_detail",
+      "urlPatterns": [
+        "^https://debank\\.com/protocols/[a-z0-9-]+/?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 4000,
+    "requiredSelectors": [
+      "div.AssetsOnChain_totalChain__43Xsd",
+      "div.Portfolio_collect__eBEjE",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "wallet_portfolio_summary",
+      "pageType": "wallet_profile",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.AssetsOnChain_totalChain__43Xsd",
+        "div.Portfolio_collect__eBEjE"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 200,
+        "y": 320,
+        "width": 1240,
+        "height": 860
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    },
+    {
+      "captureKey": "protocol_summary",
+      "pageType": "protocol_detail",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.ProtocolsHeader_header__NIHdw",
+        "div.ProtocolsHeader_container__ijXcB"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 200,
+        "y": 180,
+        "width": 1240,
+        "height": 260
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

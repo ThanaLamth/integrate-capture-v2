@@ -1,0 +1,53 @@
+{
+  "siteName": "TradingView",
+  "platformKey": "tradingview",
+  "matchRules": [
+    {
+      "pageType": "chart_page",
+      "urlPatterns": [
+        "^https://www\\.tradingview\\.com/chart/\\?symbol=.*$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 4000,
+    "requiredSelectors": [
+      "div.chart-container-border",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "advanced_chart",
+      "pageType": "chart_page",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.chart-container-border"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 140,
+        "y": 80,
+        "width": 1320,
+        "height": 880
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

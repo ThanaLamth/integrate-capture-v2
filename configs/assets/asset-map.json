@@ -1,0 +1,12 @@
+{
+  "bitcoin": {
+    "aliases": ["bitcoin", "btc"],
+    "preferredCapturePlatforms": ["coinmarketcap", "coingecko"],
+    "platformTargets": {
+      "coinmarketcap": "https://coinmarketcap.com/currencies/bitcoin/",
+      "coingecko": "https://www.coingecko.com/en/coins/bitcoin",
+      "blockchair": "https://blockchair.com/bitcoin",
+      "coinmetrics": "https://charts.coinmetrics.io/crypto-data"
+    }
+  }
+}

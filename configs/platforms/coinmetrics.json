@@ -1,0 +1,55 @@
+{
+  "siteName": "CoinMetrics",
+  "platformKey": "coinmetrics",
+  "matchRules": [
+    {
+      "pageType": "crypto_data",
+      "urlPatterns": [
+        "^https://charts\\.coinmetrics\\.io/crypto-data/?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 2500,
+    "requiredSelectors": [
+      "div[class*='GridPanel-chartContainer']",
+      "div[class*='Chart-chartPanel']",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "price_chart",
+      "pageType": "crypto_data",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div[class*='GridPanel-chartContainer']",
+        "div[class*='Chart-chartPanel']"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 110,
+        "y": 120,
+        "width": 1320,
+        "height": 760
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

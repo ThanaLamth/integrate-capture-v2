@@ -1,0 +1,53 @@
+{
+  "siteName": "DappRadar",
+  "platformKey": "dappradar",
+  "matchRules": [
+    {
+      "pageType": "dapp_page",
+      "urlPatterns": [
+        "^https://dappradar\\.com/dapp/[a-z0-9-]+/?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 5000,
+    "requiredSelectors": [
+      "div.ContentCard",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "dapp_content_card",
+      "pageType": "dapp_page",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.ContentCard"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 160,
+        "y": 220,
+        "width": 1280,
+        "height": 720
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

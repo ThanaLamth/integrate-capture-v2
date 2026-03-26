@@ -1,0 +1,80 @@
+{
+  "siteName": "DefiLlama",
+  "platformKey": "defillama",
+  "matchRules": [
+    {
+      "pageType": "chain_detail",
+      "urlPatterns": [
+        "^https://defillama\\.com/chain/(?<slug>[a-z0-9-]+)/?$"
+      ]
+    },
+    {
+      "pageType": "protocol_detail",
+      "urlPatterns": [
+        "^https://defillama\\.com/protocol/(?<slug>[a-z0-9-]+)/?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 5000,
+    "requiredSelectors": [
+      "div.relative.flex.min-h-\\[360px\\].flex-col",
+      "canvas",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "chain_tvl_chart",
+      "pageType": "chain_detail",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.relative.flex.min-h-\\[360px\\].flex-col"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 620,
+        "y": 300,
+        "width": 920,
+        "height": 430
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    },
+    {
+      "captureKey": "protocol_tvl_chart",
+      "pageType": "protocol_detail",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.relative.flex.min-h-\\[360px\\].flex-col"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 600,
+        "y": 520,
+        "width": 930,
+        "height": 430
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

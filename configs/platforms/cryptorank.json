@@ -1,0 +1,56 @@
+{
+  "siteName": "CryptoRank",
+  "platformKey": "cryptorank",
+  "matchRules": [
+    {
+      "pageType": "token_unlock_analytics",
+      "urlPatterns": [
+        "^https://cryptorank\\.io/token-unlock/analytics(?:#.*)?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 5000,
+    "requiredSelectors": [
+      "div#major-token-unlocks",
+      "div[id='major-token-unlocks']",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "major_token_unlocks",
+      "pageType": "token_unlock_analytics",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div#major-token-unlocks",
+        "div[id='major-token-unlocks']",
+        "div[class*='styles_subsection__']"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 180,
+        "y": 340,
+        "width": 1240,
+        "height": 520
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

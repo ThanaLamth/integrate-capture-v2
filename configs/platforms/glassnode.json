@@ -1,0 +1,80 @@
+{
+  "siteName": "Glassnode",
+  "platformKey": "glassnode",
+  "matchRules": [
+    {
+      "pageType": "monthly_returns",
+      "urlPatterns": [
+        "^https://studio\\.glassnode\\.com/charts/monthly-returns(?:\\?.*)?$"
+      ]
+    },
+    {
+      "pageType": "price_performance_since_ath",
+      "urlPatterns": [
+        "^https://studio\\.glassnode\\.com/charts/btc-price-performance-since-ath(?:\\?.*)?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 12000,
+    "requiredSelectors": [
+      "div.uplot_container-lvzWw",
+      "div.plot_container-JfInd",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "monthly_returns_chart",
+      "pageType": "monthly_returns",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.uplot_container-lvzWw"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 320,
+        "y": 350,
+        "width": 1260,
+        "height": 760
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    },
+    {
+      "captureKey": "price_performance_since_ath_chart",
+      "pageType": "price_performance_since_ath",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.uplot_container-lvzWw"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 320,
+        "y": 350,
+        "width": 1260,
+        "height": 760
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "siteName": "CoinGecko",
+  "platformKey": "coingecko",
+  "matchRules": [
+    {
+      "pageType": "coin_detail",
+      "urlPatterns": [
+        "^https://www\\.coingecko\\.com/en/coins/(?<slug>[a-z0-9-]+)/?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1440,
+      "height": 2200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 2500,
+    "requiredSelectors": [
+      "main",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "price_chart",
+      "pageType": "coin_detail",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "[data-coin-chart-v2-target='tvLiveChartContainer']"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 80,
+        "y": 280,
+        "width": 1180,
+        "height": 620
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "siteName": "CryptoQuant",
+  "platformKey": "cryptoquant",
+  "matchRules": [
+    {
+      "pageType": "exchange_reserve",
+      "urlPatterns": [
+        "^https://cryptoquant\\.com/asset/btc/chart/exchange-flows/exchange-reserve(?:\\?.*)?$"
+      ]
+    },
+    {
+      "pageType": "netflow",
+      "urlPatterns": [
+        "^https://cryptoquant\\.com/asset/btc/chart/exchange-flows/exchange-netflow-total(?:\\?.*)?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 25000,
+    "requiredSelectors": [
+      "div.highchart-content",
+      "div.detail-content",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "exchange_reserve_chart",
+      "pageType": "exchange_reserve",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.highchart-content"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 310,
+        "y": 440,
+        "width": 1230,
+        "height": 700
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    },
+    {
+      "captureKey": "netflow_chart",
+      "pageType": "netflow",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "div.highchart-content"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 310,
+        "y": 440,
+        "width": 1230,
+        "height": 700
+      },
+      "scrollIntoView": true,
+      "retries": 2
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}
