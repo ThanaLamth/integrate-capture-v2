@@ -26,6 +26,7 @@ export interface ProcessArticleInput {
     captureKey: string;
     outputPath: string;
     headless?: boolean;
+    profileDir?: string;
   }) => Promise<CaptureExecutionResult>;
 }
 
@@ -45,6 +46,15 @@ function buildInitialMarkdown(title: string, body: string): string {
 function currentTimestamp(): string {
   const now = new Date();
   return now.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
+}
+
+function buildContextNote(summary: string, dataPoints: string[]): string {
+  const points = dataPoints.slice(0, 2);
+  if (points.length > 1) {
+    return `${summary}. Key data: ${points.join("; ")}.`;
+  }
+
+  return summary;
 }
 
 export async function processArticle(
@@ -110,6 +120,7 @@ export async function processArticle(
         captureKey: "price_chart",
         selectorUsed: captureResult.selectorUsed,
         mode: captureResult.mode,
+        pageContext: captureResult.pageContext,
         timestamp,
         success: true
       });
@@ -126,7 +137,10 @@ export async function processArticle(
       assetKey: match.assetKey,
       platformKey: target.platformKey,
       captureKey: "price_chart",
-      imagePath: `../images/${baseName}.png`
+      imagePath: `../images/${baseName}.png`,
+      contextNote: captureResult
+        ? buildContextNote(captureResult.pageContext.summary, captureResult.pageContext.dataPoints)
+        : undefined
     });
   }
 

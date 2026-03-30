@@ -8,7 +8,12 @@ describe("direct capture CLI mode", () => {
     const captureExecutor = vi.fn().mockResolvedValue({
       outputPath: "C:\\captures\\bitcoin.png",
       selectorUsed: "div.chart",
-      mode: "element"
+      mode: "element",
+      pageContext: {
+        pageTitle: "Bitcoin price chart",
+        summary: "Bitcoin price chart: BTC held near resistance",
+        dataPoints: ["BTC held near resistance"]
+      }
     });
 
     await runCli({
@@ -16,6 +21,7 @@ describe("direct capture CLI mode", () => {
       url: "https://www.coingecko.com/en/coins/bitcoin",
       captureKey: "price_chart",
       outputPath: "C:\\captures\\bitcoin.png",
+      profileDir: ".profiles/coingecko",
       captureExecutor
     });
 
@@ -25,7 +31,8 @@ describe("direct capture CLI mode", () => {
       url: "https://www.coingecko.com/en/coins/bitcoin",
       captureKey: "price_chart",
       outputPath: path.resolve("C:\\captures\\bitcoin.png"),
-      headless: undefined
+      headless: undefined,
+      profileDir: path.resolve(".profiles/coingecko")
     });
   });
 });

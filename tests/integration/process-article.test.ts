@@ -8,8 +8,15 @@ import { processArticle } from "../../src/batch/process-article";
 
 describe("process article", () => {
   it("processes the local draft in dry-run mode and plans a capture", async () => {
+    const articlePath = path.join(os.tmpdir(), "process-article-dry-run.html");
+    await writeFile(
+      articlePath,
+      "<h1>Bitcoin holds near resistance</h1><p>Bitcoin price hovered near a key level as traders watched sentiment.</p>",
+      "utf8"
+    );
+
     const result = await processArticle({
-      articlePath: path.join(process.cwd(), "draft article.txt"),
+      articlePath,
       siteId: "bitcoininfonews",
       dryRun: true,
       timestamp: "20260325T160500"
@@ -23,9 +30,15 @@ describe("process article", () => {
 
   it("writes local output files in live mode using the capture executor", async () => {
     const outputRoot = await mkdtemp(path.join(os.tmpdir(), "capture-flow-"));
+    const articlePath = path.join(os.tmpdir(), "process-article-live-run.html");
+    await writeFile(
+      articlePath,
+      "<h1>Bitcoin holds near resistance</h1><p>Bitcoin price hovered near a key level as traders watched sentiment.</p>",
+      "utf8"
+    );
 
     const result = await processArticle({
-      articlePath: path.join(process.cwd(), "draft article.txt"),
+      articlePath,
       siteId: "bitcoininfonews",
       dryRun: false,
       outputRoot,
@@ -35,7 +48,12 @@ describe("process article", () => {
         return {
           outputPath,
           selectorUsed: "main",
-          mode: "element"
+          mode: "element",
+          pageContext: {
+            pageTitle: "Bitcoin market page",
+            summary: "Bitcoin market page: BTC traded near a key level",
+            dataPoints: ["BTC traded near a key level", "Volume stayed elevated"]
+          }
         };
       }
     });
@@ -45,6 +63,8 @@ describe("process article", () => {
 
     expect(result.imagePaths[0]).toContain(`${path.sep}images${path.sep}`);
     expect(articleOutput).toContain("<!-- capture:bitcoin:coinmarketcap:price_chart -->");
+    expect(articleOutput).toContain("Key data:");
     expect(metadataOutput).toContain("\"selectorUsed\": \"main\"");
+    expect(metadataOutput).toContain("\"pageContext\"");
   });
 });

@@ -1,0 +1,51 @@
+{
+  "siteName": "Sec Edgar",
+  "platformKey": "sec-edgar",
+  "matchRules": [
+    {
+      "pageType": "aapl_20230930_htm_page",
+      "urlPatterns": [
+        "^https://www\\.sec\\.gov/Archives/edgar/data/0000320193/000032019323000106/aapl-20230930\\.htm\\/?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 2500,
+    "requiredSelectors": [
+      "table",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "primary_view",
+      "pageType": "aapl_20230930_htm_page",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "table"
+      ],
+      "fallbackSelectors": [],
+      "cropRules": {
+        "anchorSelector": "table",
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 900
+      },
+      "scrollIntoView": true,
+      "retries": 1
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

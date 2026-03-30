@@ -1,0 +1,56 @@
+{
+  "siteName": "Cme Fedwatch",
+  "platformKey": "cme-fedwatch",
+  "matchRules": [
+    {
+      "pageType": "cme_fedwatch_tool_html_page",
+      "urlPatterns": [
+        "^https://www\\.cmegroup\\.com/markets/interest-rates/cme-fedwatch-tool\\.html\\/?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 2500,
+    "requiredSelectors": [
+      "main",
+      "article",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "primary_view",
+      "pageType": "cme_fedwatch_tool_html_page",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "main",
+        "article",
+        "body"
+      ],
+      "fallbackSelectors": [
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "body",
+        "x": 80,
+        "y": 80,
+        "width": 1280,
+        "height": 900
+      },
+      "scrollIntoView": true,
+      "retries": 1
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

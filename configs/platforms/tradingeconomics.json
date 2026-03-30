@@ -1,0 +1,54 @@
+{
+  "siteName": "Tradingeconomics",
+  "platformKey": "tradingeconomics",
+  "matchRules": [
+    {
+      "pageType": "jobless_claims_page",
+      "urlPatterns": [
+        "^https://tradingeconomics\\.com/united-states/jobless-claims\\/?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 2500,
+    "requiredSelectors": [
+      ".highcharts-container",
+      ".highcharts-root",
+      "#chart"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "primary_view",
+      "pageType": "jobless_claims_page",
+      "strategy": "element_or_crop",
+      "selectors": [
+        ".highcharts-container",
+        ".highcharts-root",
+        "#chart"
+      ],
+      "fallbackSelectors": [],
+      "cropRules": {
+        "anchorSelector": "#chart",
+        "x": 0,
+        "y": 0,
+        "width": 968,
+        "height": 446
+      },
+      "scrollIntoView": true,
+      "retries": 1
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

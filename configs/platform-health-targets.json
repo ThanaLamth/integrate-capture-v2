@@ -1,0 +1,108 @@
+{
+  "targets": [
+    {
+      "platformKey": "arkm",
+      "sampleUrl": "https://intel.arkm.com/explorer/entity/blackrock"
+    },
+    {
+      "platformKey": "cme-fedwatch",
+      "sampleUrl": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html"
+    },
+    {
+      "platformKey": "coingecko",
+      "sampleUrl": "https://www.coingecko.com/en/coins/bitcoin"
+    },
+    {
+      "platformKey": "coinglass",
+      "sampleUrl": "https://www.coinglass.com/liquidations"
+    },
+    {
+      "platformKey": "coinmarketcap",
+      "sampleUrl": "https://coinmarketcap.com/currencies/bitcoin/"
+    },
+    {
+      "platformKey": "coinmetrics",
+      "sampleUrl": "https://charts.coinmetrics.io/crypto-data"
+    },
+    {
+      "platformKey": "cryptoquant",
+      "sampleUrl": "https://cryptoquant.com/asset/btc/chart/exchange-flows"
+    },
+    {
+      "platformKey": "cryptorank",
+      "sampleUrl": "https://cryptorank.io/token-unlock/analytics#major-token-unlocks"
+    },
+    {
+      "platformKey": "cryptoslam",
+      "sampleUrl": "https://www.cryptoslam.io/blockchains/ethereum"
+    },
+    {
+      "platformKey": "dappradar",
+      "sampleUrl": "https://dappradar.com/dapp/world-of-dypians"
+    },
+    {
+      "platformKey": "debank",
+      "sampleUrl": "https://debank.com/protocols/aave3"
+    },
+    {
+      "platformKey": "defillama",
+      "sampleUrl": "https://defillama.com/"
+    },
+    {
+      "platformKey": "dexscreener",
+      "sampleUrl": "https://dexscreener.com/solana/tzq1j5bzuqynpkps4nb7ce2og6b81lhntukxtfrhrbe"
+    },
+    {
+      "platformKey": "dune",
+      "sampleUrl": "https://dune.com/collection/stablecoins/overview"
+    },
+    {
+      "platformKey": "glassnode",
+      "sampleUrl": "https://studio.glassnode.com/metrics?a=BTC&m=market.price_usd_close"
+    },
+    {
+      "platformKey": "l2beat",
+      "sampleUrl": "https://l2beat.com/scaling/projects/base"
+    },
+    {
+      "platformKey": "messari",
+      "sampleUrl": "https://messari.io/project/bitcoin"
+    },
+    {
+      "platformKey": "santiment",
+      "sampleUrl": "https://app.santiment.net/charts/social-dominance-bitcoin-23193"
+    },
+    {
+      "platformKey": "deribit",
+      "sampleUrl": "https://www.deribit.com/statistics/BTC/metrics/options"
+    },
+    {
+      "platformKey": "sec-edgar",
+      "sampleUrl": "https://www.sec.gov/Archives/edgar/data/0000320193/000032019323000106/aapl-20230930.htm"
+    },
+    {
+      "platformKey": "stakingrewards",
+      "sampleUrl": "https://www.stakingrewards.com/provider/nansen"
+    },
+    {
+      "platformKey": "tokeninsight",
+      "sampleUrl": "https://tokeninsight.com/en/exchanges/binance"
+    },
+    {
+      "platformKey": "tokenterminal",
+      "sampleUrl": "https://tokenterminal.com/explorer/projects/tether"
+    },
+    {
+      "platformKey": "tradingeconomics",
+      "sampleUrl": "https://tradingeconomics.com/united-states/jobless-claims"
+    },
+    {
+      "platformKey": "tradingview",
+      "sampleUrl": "https://www.tradingview.com/chart/?symbol=BITSTAMP%3ABTCUSD"
+    },
+    {
+      "platformKey": "yahoo-finance",
+      "sampleUrl": "https://finance.yahoo.com/quote/AAPL/"
+    }
+  ]
+}

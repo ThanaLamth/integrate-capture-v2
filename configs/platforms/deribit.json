@@ -1,0 +1,56 @@
+{
+  "siteName": "Deribit",
+  "platformKey": "deribit",
+  "matchRules": [
+    {
+      "pageType": "btc_options_metrics_page",
+      "urlPatterns": [
+        "^https://www\\.deribit\\.com/statistics/BTC/metrics/options/?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 3000,
+    "requiredSelectors": [
+      "main",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "primary_view",
+      "pageType": "btc_options_metrics_page",
+      "strategy": "element_or_crop",
+      "selectors": [
+        ".highcharts-container",
+        ".highcharts-root",
+        "svg"
+      ],
+      "fallbackSelectors": [
+        ".highcharts-root",
+        "svg"
+      ],
+      "cropRules": {
+        "anchorSelector": ".highcharts-container",
+        "x": 80,
+        "y": 80,
+        "width": 700,
+        "height": 520
+      },
+      "scrollIntoView": true,
+      "retries": 1
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

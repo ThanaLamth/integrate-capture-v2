@@ -1,0 +1,60 @@
+{
+  "siteName": "Yahoo Finance",
+  "platformKey": "yahoo-finance",
+  "matchRules": [
+    {
+      "pageType": "quote_page",
+      "urlPatterns": [
+        "^https://finance\\.yahoo\\.com/quote/[^/?#]+/?(?:\\?.*)?$"
+      ]
+    }
+  ],
+  "viewports": {
+    "default": {
+      "width": 1600,
+      "height": 1200,
+      "deviceScaleFactor": 1
+    }
+  },
+  "waitConditions": {
+    "networkIdleMs": 1500,
+    "extraDelayMs": 2500,
+    "requiredSelectors": [
+      "#nimbus-app",
+      "main",
+      "body"
+    ]
+  },
+  "captures": [
+    {
+      "captureKey": "primary_view",
+      "pageType": "quote_page",
+      "strategy": "element_or_crop",
+      "selectors": [
+        "[data-testid=\"chart-container\"]",
+        "[data-testid=\"quote-statistics\"]",
+        "#nimbus-app",
+        "main",
+        "body"
+      ],
+      "fallbackSelectors": [
+        "#nimbus-app",
+        "main",
+        "body"
+      ],
+      "cropRules": {
+        "anchorSelector": "#nimbus-app",
+        "x": 40,
+        "y": 120,
+        "width": 1320,
+        "height": 860
+      },
+      "scrollIntoView": true,
+      "retries": 1
+    }
+  ],
+  "output": {
+    "fileTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.png",
+    "metadataTemplate": "{site_id}__{asset_slug}__{platform_key}__{capture_key}__{timestamp}.json"
+  }
+}

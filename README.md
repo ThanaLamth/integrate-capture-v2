@@ -78,6 +78,75 @@ npm run build
 node dist/src/cli/main.js --platform coingecko --url "https://www.coingecko.com/en/coins/bitcoin" --capture price_chart --output "C:\captures\bitcoin.png"
 ```
 
+Recommend the best platform(s) for an article:
+
+```bash
+npm run build
+node dist/src/cli/main.js \
+  --recommend-title "Gold Falls as Real Yields Rise and Dollar Strengthens" \
+  --recommend-url "https://coincu.com/markets/gold-falls-as-real-yields-rise-dollar-strengthens/"
+```
+
+Check which configured platforms are healthy, blocked, or broken:
+
+```bash
+npm run build
+node dist/src/cli/main.js --check-platform-health
+```
+
+Check one platform only:
+
+```bash
+node dist/src/cli/main.js --check-platform-health --health-platform coingecko
+```
+
+Plan a draft before final capture/output:
+
+```bash
+npm run build
+node dist/src/cli/main.js --plan-draft --article "draft article.txt" --site bitcoininfonews
+```
+
+This returns a draft workflow plan with:
+
+- extracted asset matches
+- required evidence blocks for the writer
+- suggested platforms for each evidence block
+- writing instructions before image insertion
+- claim-anchored capture plans
+- current platform recommendations
+- suggested new platforms when current coverage is weak
+- markdown with capture placeholders and `Data Notes`
+
+Onboard a newly recommended platform into the repo:
+
+```bash
+npm run build
+node dist/src/cli/main.js \
+  --onboard-platform etherscan \
+  --onboard-sample-url "https://etherscan.io/address/0x0000000000000000000000000000000000000000" \
+  --onboard-evidence onchain_transfer
+```
+
+This scaffolds:
+
+- `configs/platforms/<platform>.json`
+- a current-platform entry in `platform-catalog.json`
+- a sample target in `platform-health-targets.json`
+
+Persistent profile flow for Cloudflare-protected sites:
+
+```bash
+npm run build
+node dist/src/cli/main.js --url "https://www.coingecko.com/en/coins/ethereum" --profile-dir "./.profiles/coingecko" --warmup
+```
+
+Solve the verification in the opened browser, then close it with `Ctrl+C`. Reuse the same profile for captures:
+
+```bash
+node dist/src/cli/main.js --platform coingecko --url "https://www.coingecko.com/en/coins/ethereum" --capture price_chart --output "./output/images/ethereum-coingecko.png" --profile-dir "./.profiles/coingecko"
+```
+
 PowerShell wrapper:
 
 ```powershell

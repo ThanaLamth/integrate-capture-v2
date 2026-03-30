@@ -1,0 +1,474 @@
+{
+  "currentPlatforms": [
+    {
+      "platformKey": "arkm",
+      "category": "onchain-intelligence",
+      "supportsEvidence": [
+        "onchain_transfer",
+        "spot_market"
+      ],
+      "strengths": [
+        "wallet tracking",
+        "entity tracking",
+        "large transfer verification"
+      ]
+    },
+    {
+      "platformKey": "cme-fedwatch",
+      "category": "external",
+      "supportsEvidence": [
+        "macro_rates",
+        "policy_regulatory"
+      ],
+      "strengths": [
+        "newly onboarded platform"
+      ],
+      "notes": "Best source for Fed probability and rate-path articles."
+    },
+    {
+      "platformKey": "coingecko",
+      "category": "market-overview",
+      "supportsEvidence": [
+        "spot_market"
+      ],
+      "strengths": [
+        "token overview",
+        "basic market chart"
+      ]
+    },
+    {
+      "platformKey": "coinglass",
+      "category": "derivatives",
+      "supportsEvidence": [
+        "derivatives_market",
+        "exchange_positioning",
+        "spot_market"
+      ],
+      "strengths": [
+        "liquidations",
+        "funding rate",
+        "open interest",
+        "heatmaps"
+      ]
+    },
+    {
+      "platformKey": "coinmarketcap",
+      "category": "market-overview",
+      "supportsEvidence": [
+        "spot_market",
+        "token_holder_concentration"
+      ],
+      "strengths": [
+        "token overview",
+        "market cap context"
+      ]
+    },
+    {
+      "platformKey": "coinmetrics",
+      "category": "market-data",
+      "supportsEvidence": [
+        "spot_market",
+        "onchain_transfer"
+      ],
+      "strengths": [
+        "network metrics",
+        "market data dashboards"
+      ]
+    },
+    {
+      "platformKey": "cryptoquant",
+      "category": "market-data",
+      "supportsEvidence": [
+        "derivatives_market",
+        "exchange_positioning",
+        "spot_market",
+        "onchain_transfer",
+        "claim_check"
+      ],
+      "strengths": [
+        "exchange flows",
+        "derivatives metrics",
+        "market sentiment"
+      ]
+    },
+    {
+      "platformKey": "cryptorank",
+      "category": "market-overview",
+      "supportsEvidence": [
+        "spot_market",
+        "funding_mna",
+        "ai_company_news"
+      ],
+      "strengths": [
+        "token unlocks",
+        "funding context",
+        "market overview"
+      ]
+    },
+    {
+      "platformKey": "cryptoslam",
+      "category": "nft-analytics",
+      "supportsEvidence": [
+        "spot_market"
+      ],
+      "strengths": [
+        "NFT and blockchain activity"
+      ]
+    },
+    {
+      "platformKey": "dappradar",
+      "category": "dapp-analytics",
+      "supportsEvidence": [
+        "defi_metrics",
+        "spot_market"
+      ],
+      "strengths": [
+        "dapp rankings",
+        "ecosystem activity"
+      ]
+    },
+    {
+      "platformKey": "deribit",
+      "category": "options-data",
+      "supportsEvidence": [
+        "options_market",
+        "derivatives_market"
+      ],
+      "strengths": [
+        "options open interest",
+        "strike distribution",
+        "implied volatility",
+        "options market structure"
+      ],
+      "notes": "Best source for BTC and ETH options positioning, strike, and volatility context."
+    },
+    {
+      "platformKey": "debank",
+      "category": "onchain-intelligence",
+      "supportsEvidence": [
+        "onchain_transfer",
+        "defi_metrics"
+      ],
+      "strengths": [
+        "wallet profile",
+        "protocol exposure",
+        "portfolio state"
+      ]
+    },
+    {
+      "platformKey": "defillama",
+      "category": "defi-analytics",
+      "supportsEvidence": [
+        "defi_metrics",
+        "spot_market"
+      ],
+      "strengths": [
+        "TVL",
+        "stablecoins",
+        "protocol overview",
+        "RWA context"
+      ]
+    },
+    {
+      "platformKey": "dexscreener",
+      "category": "dex-market-data",
+      "supportsEvidence": [
+        "spot_market",
+        "defi_metrics"
+      ],
+      "strengths": [
+        "pair charts",
+        "DEX market activity"
+      ]
+    },
+    {
+      "platformKey": "dune",
+      "category": "analytics",
+      "supportsEvidence": [
+        "defi_metrics",
+        "onchain_transfer",
+        "spot_market",
+        "governance",
+        "airdrop_sybil",
+        "token_holder_concentration"
+      ],
+      "strengths": [
+        "custom dashboards",
+        "onchain analytics",
+        "RWA and ecosystem metrics"
+      ]
+    },
+    {
+      "platformKey": "glassnode",
+      "category": "market-data",
+      "supportsEvidence": [
+        "spot_market",
+        "derivatives_market",
+        "onchain_transfer"
+      ],
+      "strengths": [
+        "Bitcoin and ETH network metrics"
+      ]
+    },
+    {
+      "platformKey": "l2beat",
+      "category": "layer2-analytics",
+      "supportsEvidence": [
+        "defi_metrics",
+        "spot_market"
+      ],
+      "strengths": [
+        "layer 2 ecosystem and scaling metrics"
+      ]
+    },
+    {
+      "platformKey": "messari",
+      "category": "research",
+      "supportsEvidence": [
+        "spot_market",
+        "defi_metrics",
+        "governance",
+        "protocol_technical",
+        "claim_check"
+      ],
+      "strengths": [
+        "project overview",
+        "research context"
+      ]
+    },
+    {
+      "platformKey": "santiment",
+      "category": "market-data",
+      "supportsEvidence": [
+        "derivatives_market",
+        "spot_market"
+      ],
+      "strengths": [
+        "social and market indicators"
+      ]
+    },
+    {
+      "platformKey": "sec-edgar",
+      "category": "external",
+      "supportsEvidence": [
+        "filing_regulatory",
+        "etf_flow",
+        "structured_product"
+      ],
+      "strengths": [
+        "newly onboarded platform"
+      ],
+      "notes": "Best source for official ETF filing and regulatory-document screenshots."
+    },
+    {
+      "platformKey": "stakingrewards",
+      "category": "staking",
+      "supportsEvidence": [
+        "defi_metrics",
+        "spot_market"
+      ],
+      "strengths": [
+        "staking providers",
+        "staking metrics"
+      ]
+    },
+    {
+      "platformKey": "tokeninsight",
+      "category": "market-overview",
+      "supportsEvidence": [
+        "spot_market",
+        "legal_security",
+        "claim_check"
+      ],
+      "strengths": [
+        "exchange overview",
+        "market monitoring"
+      ]
+    },
+    {
+      "platformKey": "tokenterminal",
+      "category": "fundamentals",
+      "supportsEvidence": [
+        "defi_metrics",
+        "spot_market",
+        "funding_mna",
+        "ai_company_news"
+      ],
+      "strengths": [
+        "protocol fundamentals",
+        "revenue and valuation context"
+      ]
+    },
+    {
+      "platformKey": "tradingeconomics",
+      "category": "external",
+      "supportsEvidence": [
+        "macro_rates",
+        "commodities_fx"
+      ],
+      "strengths": [
+        "newly onboarded platform"
+      ],
+      "notes": "Best source for yields, FX, commodities, and macro calendar charts."
+    },
+    {
+      "platformKey": "tradingview",
+      "category": "charts",
+      "supportsEvidence": [
+        "exchange_positioning",
+        "spot_market",
+        "commodities_fx",
+        "equities_public_company",
+        "macro_rates",
+        "index_product"
+      ],
+      "strengths": [
+        "price chart",
+        "technical analysis",
+        "cross-asset charting"
+      ]
+    },
+    {
+      "platformKey": "yahoo-finance",
+      "category": "external",
+      "supportsEvidence": [
+        "equities_public_company",
+        "commodities_fx",
+        "ai_company_news",
+        "index_product",
+        "structured_product"
+      ],
+      "strengths": [
+        "newly onboarded platform"
+      ],
+      "notes": "Useful for public-company, premarket, and broad market chart context."
+    }
+  ],
+  "recommendedPlatforms": [
+    {
+      "platformKey": "etherscan",
+      "supportsEvidence": [
+        "onchain_transfer",
+        "legal_security"
+      ],
+      "reason": "Best source for ETH wallet, token, and contract verification stories."
+    },
+    {
+      "platformKey": "solscan",
+      "supportsEvidence": [
+        "onchain_transfer"
+      ],
+      "reason": "Best source for Solana wallet and transaction verification."
+    },
+    {
+      "platformKey": "xrpscan",
+      "supportsEvidence": [
+        "onchain_transfer"
+      ],
+      "reason": "Best source for XRP address and transfer verification."
+    },
+    {
+      "platformKey": "mempool",
+      "supportsEvidence": [
+        "onchain_transfer"
+      ],
+      "reason": "Best source for Bitcoin transaction and fee-state verification."
+    },
+    {
+      "platformKey": "sosovalue",
+      "supportsEvidence": [
+        "etf_flow"
+      ],
+      "reason": "Best source for crypto ETF flow dashboards and net inflow visuals."
+    },
+    {
+      "platformKey": "farside",
+      "supportsEvidence": [
+        "etf_flow"
+      ],
+      "reason": "Useful backup source for daily ETF flow tables."
+    },
+    {
+      "platformKey": "laevitas",
+      "supportsEvidence": [
+        "options_market",
+        "derivatives_market"
+      ],
+      "reason": "Useful for options skew, implied volatility, and strike-distribution views."
+    },
+    {
+      "platformKey": "amberdata",
+      "supportsEvidence": [
+        "options_market",
+        "derivatives_market"
+      ],
+      "reason": "Useful for institutional-style crypto options and derivatives analytics."
+    },
+    {
+      "platformKey": "companiesmarketcap",
+      "supportsEvidence": [
+        "equities_public_company",
+        "ai_company_news",
+        "structured_product"
+      ],
+      "reason": "Useful for company ranking and market-cap context."
+    },
+    {
+      "platformKey": "rwa-xyz",
+      "supportsEvidence": [
+        "defi_metrics",
+        "filing_regulatory"
+      ],
+      "reason": "Useful for tokenized treasury and RWA-specific stories."
+    },
+    {
+      "platformKey": "snapshot",
+      "supportsEvidence": [
+        "governance"
+      ],
+      "reason": "Best source for DAO vote and proposal stories."
+    },
+    {
+      "platformKey": "tally",
+      "supportsEvidence": [
+        "governance"
+      ],
+      "reason": "Useful for onchain governance and delegate proposal stories."
+    },
+    {
+      "platformKey": "crunchbase",
+      "supportsEvidence": [
+        "funding_mna",
+        "ai_company_news"
+      ],
+      "reason": "Useful for startup funding and acquisition coverage."
+    },
+    {
+      "platformKey": "theblock",
+      "supportsEvidence": [
+        "claim_check",
+        "index_product",
+        "policy_regulatory"
+      ],
+      "reason": "Useful for crypto product launches, claim verification, and policy context."
+    },
+    {
+      "platformKey": "etherscan",
+      "supportsEvidence": [
+        "onchain_transfer",
+        "legal_security",
+        "claim_check",
+        "token_holder_concentration"
+      ],
+      "reason": "Best source for ETH wallet, token, and contract verification stories."
+    },
+    {
+      "platformKey": "snapshot",
+      "supportsEvidence": [
+        "governance",
+        "airdrop_sybil"
+      ],
+      "reason": "Best source for DAO vote and proposal stories."
+    }
+  ]
+}

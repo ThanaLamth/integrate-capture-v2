@@ -6,11 +6,16 @@ import type { Locator, Page } from "playwright";
 import { loadPlatformConfig } from "../config/loaders";
 import { buildCropRegion, decideCaptureMode, selectCaptureDefinition } from "./capture-region";
 import { validateCropRegion } from "./crop-image";
-import { launchBrowser } from "./browser";
+import { launchBrowserSession } from "./browser";
 import { prepareCoinGeckoPage } from "./prepare-coingecko";
 import { prepareCoinMetricsPage } from "./prepare-coinmetrics";
 import { prepareCoinMarketCapPage } from "./prepare-coinmarketcap";
+import { prepareGenericPage } from "./prepare-generic-page";
 import { prepareSantimentPage } from "./prepare-santiment";
+import { prepareTradingEconomicsPage } from "./prepare-tradingeconomics";
+import { prepareYahooFinancePage } from "./prepare-yahoo-finance";
+import { extractPageContext, type CapturePageContext } from "./extract-page-context";
+import { ensureUsefulCapturePage, isBroadCaptureSelector } from "./validate-page-content";
 
 export interface CaptureExecutionRequest {
   platformKey: string;
@@ -18,12 +23,22 @@ export interface CaptureExecutionRequest {
   captureKey: string;
   outputPath: string;
   headless?: boolean;
+  profileDir?: string;
 }
 
 export interface CaptureExecutionResult {
   outputPath: string;
   selectorUsed: string;
   mode: "element" | "crop";
+  pageContext: CapturePageContext;
+}
+
+function userAgentForPlatform(platformKey: string): string | undefined {
+  if (platformKey === "sec-edgar") {
+    return "coincu thana@coincu.com";
+  }
+
+  return undefined;
 }
 
 async function firstMatchingLocator(page: Page, selectors: string[]): Promise<{
@@ -82,28 +97,31 @@ export async function executeCapture(
   const capture = selectCaptureDefinition(config, pageType, request.captureKey);
   await mkdir(path.dirname(request.outputPath), { recursive: true });
 
-  const browser = await launchBrowser({
-    headless: resolveHeadlessMode(request.platformKey, request.headless)
+  const session = await launchBrowserSession({
+    headless: resolveHeadlessMode(request.platformKey, request.headless),
+    profileDir: request.profileDir,
+    userAgent: userAgentForPlatform(request.platformKey)
   });
 
   try {
-    const context = await browser.newContext({
-      viewport: {
-        width: config.viewports.default.width,
-        height: config.viewports.default.height
-      },
-      deviceScaleFactor: config.viewports.default.deviceScaleFactor
+    const page = session.page;
+    await page.setViewportSize({
+      width: config.viewports.default.width,
+      height: config.viewports.default.height
     });
-    const page = await context.newPage();
 
     await page.goto(request.url, {
       waitUntil: "domcontentloaded",
       timeout: 60000
     });
+    await prepareGenericPage(page);
     await prepareCoinMarketCapPage(page, request.url);
     await prepareCoinGeckoPage(page, request.url);
     await prepareCoinMetricsPage(page, request.url);
     await prepareSantimentPage(page, request.url);
+    await prepareTradingEconomicsPage(page, request.url);
+    await prepareYahooFinancePage(page, request.url);
+    await prepareGenericPage(page);
 
     for (const selector of config.waitConditions.requiredSelectors) {
       try {
@@ -119,7 +137,16 @@ export async function executeCapture(
 
     await page.waitForTimeout(config.waitConditions.extraDelayMs);
 
-    const primaryMatch = await firstMatchingLocator(page, capture.selectors);
+    const usefulDataSelector = await ensureUsefulCapturePage(page, request.platformKey);
+    const pageContext = await extractPageContext(page);
+    let primaryMatch = await firstMatchingLocator(page, capture.selectors);
+    if (
+      primaryMatch &&
+      isBroadCaptureSelector(primaryMatch.selector) &&
+      !isBroadCaptureSelector(usefulDataSelector)
+    ) {
+      primaryMatch = await firstMatchingLocator(page, [usefulDataSelector]);
+    }
     const mode = decideCaptureMode({
       strategy: capture.strategy,
       primarySelectorFound: Boolean(primaryMatch)
@@ -140,12 +167,11 @@ export async function executeCapture(
         path: request.outputPath
       });
 
-      await context.close();
-
       return {
         outputPath: request.outputPath,
         selectorUsed: primaryMatch.selector,
-        mode
+        mode,
+        pageContext
       };
     }
 
@@ -153,9 +179,17 @@ export async function executeCapture(
       throw new Error(`Crop fallback requires cropRules for ${request.platformKey}:${request.captureKey}`);
     }
 
-    const anchorMatch =
+    let anchorMatch =
       (await firstMatchingLocator(page, [capture.cropRules.anchorSelector])) ??
       (await firstMatchingLocator(page, capture.fallbackSelectors));
+
+    if (
+      anchorMatch &&
+      isBroadCaptureSelector(anchorMatch.selector) &&
+      !isBroadCaptureSelector(usefulDataSelector)
+    ) {
+      anchorMatch = await firstMatchingLocator(page, [usefulDataSelector]);
+    }
 
     if (!anchorMatch) {
       throw new Error(`No anchor selector found for crop fallback on ${request.platformKey}`);
@@ -176,14 +210,13 @@ export async function executeCapture(
       clip
     });
 
-    await context.close();
-
     return {
       outputPath: request.outputPath,
       selectorUsed: anchorMatch.selector,
-      mode
+      mode,
+      pageContext
     };
   } finally {
-    await browser.close();
+    await session.close();
   }
 }

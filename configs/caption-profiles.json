@@ -1,0 +1,121 @@
+{
+  "coincu": {
+    "tone": "authoritative analytical",
+    "maxWords": 18,
+    "sentenceCount": 1,
+    "sourcePrefix": "Source:",
+    "linkPosition": "end",
+    "emphasizeData": true,
+    "emphasizeExplanation": true,
+    "forbiddenPhrases": ["interestingly", "time will tell", "remains to be seen"]
+  },
+  "cryptodailyalert": {
+    "tone": "wire factual",
+    "maxWords": 14,
+    "sentenceCount": 1,
+    "sourcePrefix": "Source:",
+    "linkPosition": "end",
+    "emphasizeData": true,
+    "forbiddenPhrases": ["could potentially", "may or may not", "crypto space"]
+  },
+  "bitcoininfonews": {
+    "tone": "bitcoin-first",
+    "maxWords": 16,
+    "sentenceCount": 1,
+    "sourcePrefix": "Source:",
+    "linkPosition": "end",
+    "emphasizeData": true,
+    "emphasizeExplanation": true,
+    "forbiddenPhrases": ["to the moon", "WAGMI", "bullish vibes"]
+  },
+  "marketbit": {
+    "tone": "quant data",
+    "maxWords": 14,
+    "sentenceCount": 1,
+    "sourcePrefix": "Source:",
+    "linkPosition": "end",
+    "emphasizeData": true,
+    "forbiddenPhrases": ["bullish", "bearish", "whale alert"]
+  },
+  "defiliban": {
+    "tone": "protocol analytical",
+    "maxWords": 16,
+    "sentenceCount": 1,
+    "sourcePrefix": "Source:",
+    "linkPosition": "end",
+    "emphasizeExplanation": true,
+    "forbiddenPhrases": ["DeFi summer", "game-changer"]
+  },
+  "aicryptocore": {
+    "tone": "ai-crypto technical",
+    "maxWords": 16,
+    "sentenceCount": 1,
+    "sourcePrefix": "Source:",
+    "linkPosition": "end",
+    "emphasizeExplanation": true,
+    "forbiddenPhrases": ["AI revolution", "AGI imminent"]
+  },
+  "nftenex": {
+    "tone": "digital ownership",
+    "maxWords": 16,
+    "sentenceCount": 1,
+    "sourcePrefix": "Source:",
+    "linkPosition": "end",
+    "emphasizeExplanation": true,
+    "forbiddenPhrases": ["to the moon", "NFTs are dead"]
+  },
+  "theccpress": {
+    "tone": "dramatic factual",
+    "maxWords": 16,
+    "sentenceCount": 1,
+    "sourcePrefix": "Source:",
+    "linkPosition": "end",
+    "emphasizeConflict": true,
+    "forbiddenPhrases": ["it remains to be seen", "in conclusion"]
+  },
+  "coinlineup": {
+    "tone": "plain english",
+    "maxWords": 16,
+    "sentenceCount": 1,
+    "sourcePrefix": "Source:",
+    "linkPosition": "end",
+    "emphasizeExplanation": true,
+    "forbiddenPhrases": ["DYOR", "alpha"]
+  },
+  "coinlive": {
+    "tone": "flash market",
+    "maxWords": 12,
+    "sentenceCount": 1,
+    "sourcePrefix": "Source:",
+    "linkPosition": "end",
+    "emphasizeData": true,
+    "forbiddenPhrases": ["let's dive in", "buckle up"]
+  },
+  "coinwy": {
+    "tone": "balanced",
+    "maxWords": 16,
+    "sentenceCount": 1,
+    "sourcePrefix": "Source:",
+    "linkPosition": "end",
+    "emphasizeExplanation": true,
+    "forbiddenPhrases": ["doom", "moonshot"]
+  },
+  "kanalcoin": {
+    "tone": "regional context",
+    "maxWords": 16,
+    "sentenceCount": 1,
+    "sourcePrefix": "Source:",
+    "linkPosition": "end",
+    "emphasizeRegionalAngle": true,
+    "forbiddenPhrases": ["US-only view"]
+  },
+  "tokentopnews": {
+    "tone": "synthesis",
+    "maxWords": 16,
+    "sentenceCount": 1,
+    "sourcePrefix": "Source:",
+    "linkPosition": "end",
+    "emphasizeExplanation": true,
+    "forbiddenPhrases": ["isolated event", "single factor"]
+  }
+}
